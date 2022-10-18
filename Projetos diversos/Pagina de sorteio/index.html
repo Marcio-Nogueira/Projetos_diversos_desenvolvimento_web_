@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function sortear() {
+
+            let pessoas = ["Márcio", "José", "Matheus", "Camilla", "Renata", "Josiane", "Mathilda"]
+
+            let np = pessoas.length;
+
+            let ns = Math.floor(Math.random() * np);
+
+            document.getElementById("d").innerHTML = "Parabéns " + pessoas[ns] + " você ganhou o sorteio";
+
+        }
+    </script>
+
+    <style>
+        #container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+        
+        #centered {
+            padding: 50%;
+            text-align: justify;
+        }
+        
+        .texto {
+            white-space: nowrap;
+            margin-left: -200px;
+        }
+        
+        #d {
+            color: red;
+        }
+        
+        button {
+            color: black;
+            background-color: #87CEFA;
+            padding: 0.5em;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="centered">
+            <div class="texto">
+                <h1 id="d"></h1>
+            </div>
+            <div class="button">
+                <button onclick="sortear()"> Sortear </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

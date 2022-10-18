@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de materiais de construção</title>
+    <link href='https://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet'>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: rgb(200, 220, 220);
+        }
+        
+        header {
+            background-color: rgb(100, 150, 160);
+            padding: 10px;
+            text-align: center;
+            color: BLACK;
+            font-family: 'Arizonia';
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        
+        main {
+            position: absolute;
+            top: 0;
+            left: 15%;
+            width: 70%;
+            height: 100%;
+            background-image: url(./Imagens/fundo.jpg);
+            background-size: cover;
+        }
+        
+        #flex {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        #flex>div {
+            flex: 1 1 150px;
+            margin: 80px;
+        }
+        
+        img,
+        label {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <h1 id="title">Calculadora de materiais de Construção</h1>
+        </header>
+        <div id="flex">
+
+            <div>
+
+                <a href="concreto.html">
+                    <img width=100px src="/Imagens/concreto.png">
+                    <label>Concreto</label>
+                </a>
+            </div>
+            <div>
+
+                <a href="parede.html">
+                    <img width=100px src="/Imagens/parede.png">
+                    <label>Parede</label>
+                </a>
+            </div>
+            <div>
+
+                <a href="reboco.html">
+                    <img width=100px src="/Imagens/reboco.png">
+                    <label>Reboco</label>
+                </a>
+            </div>
+            <div>
+
+                <a href="piso.html">
+                    <img width=100px src="/Imagens/piso.png">
+                    <label>Revestimentos</label>
+                </a>
+            </div>
+            <div>
+
+                <a href="pintura.html">
+                    <img width=100px src="/Imagens/pintura.png">
+                    <label>Pintura</label>
+                </a>
+            </div>
+
+        </div>
+        <footer>
+
+        </footer>
+    </main>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

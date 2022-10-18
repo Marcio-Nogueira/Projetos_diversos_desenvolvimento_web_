@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+h1 {
+    align-content: center;
+    margin-top: 20px;
+}
+
+body {
+    background-color: #3D4051;
+    text-align: center;
+    display: grid;
+    grid-template-areas: "a5 a5 a5 a5" "a3 a1 a1 a4" "a2 a2 a2 a2";
+    grid-row-gap: 10px;
+    justify-content: space-evenly;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #f1ead0;
+    border: 1px solid gray;
+    display: inline-block;
+}
+
+
+/*X and O style*/
+
+.o {
+    position: relative;
+}
+
+.o:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\2B55";
+    font-size: 50px;
+    line-height: 100px;
+}
+
+.x {
+    position: relative;
+}
+
+.x:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\274C";
+    font-size: 50px;
+    line-height: 100px;
+}
+
+
+/* Score Style */
+
+#containerX,
+#containerO {
+    height: 100px;
+    width: 200px;
+    background-color: #92B6B1;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#inputX,
+#inputO {
+    text-align: center;
+    border-radius: 100%;
+    border: none;
+    margin-top: 5px;
+    height: 50px;
+    background-color: #f1ead0;
+    color: red;
+    font-size: 25px;
+}
+
+
+/*Button style*/
+
+#restartGameButton {
+    width: 315px;
+    height: 30px;
+    background-color: #92B6B1;
+    border-radius: 20px;
+}
+
+
+/*media queries*/
+
+@media (max-width: 800px) {
+    body {
+        grid-template-areas: "a5 a5 a5 a5" "a3 a3 a4 a4" "a1 a1 a1 a1" "a2 a2 a2 a2";
+    }
+}
+
+
+/*grid areas*/
+
+
+/*jogo da velha*/
+
+.item1 {
+    grid-area: a1;
+}
+
+
+/*botão de restart*/
+
+.item2 {
+    grid-area: a2;
+}
+
+
+/*jogadorO*/
+
+.item3 {
+    grid-area: a3;
+}
+
+
+/*jogadorX*/
+
+.item4 {
+    grid-area: a4;
+}
+
+
+/*titulo*/
+
+.item5 {
+    grid-area: a5;
+}

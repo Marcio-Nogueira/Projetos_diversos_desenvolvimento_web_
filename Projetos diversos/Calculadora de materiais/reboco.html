@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reboco</title>
+    <link href='https://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet'>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: rgb(200, 220, 220);
+        }
+        
+        header {
+            background-color: rgb(100, 150, 160);
+            padding: 10px;
+            text-align: center;
+            color: black;
+            font-family: 'Arizonia';
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        
+        main {
+            position: absolute;
+            top: 0;
+            left: 15%;
+            width: 70%;
+            height: 100%;
+            background-image: url(./Imagens/fundo.jpg);
+            background-size: cover;
+        }
+        
+        .container {
+            max-width: 230px;
+            position: relative;
+            top: 32%;
+            margin: 0 auto;
+        }
+        
+        input,
+        select {
+            display: block;
+            padding: 3px;
+            margin-bottom: 5px;
+            width: 200px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 10px;
+            text-indent: 5px;
+        }
+        
+        button {
+            margin-left: 25%;
+            width: 100px;
+            font-family: 'Arizonia';
+            font-size: 20px;
+            font-weight: bold;
+            background-color: rgb(200, 220, 220);
+            border: none;
+            border-radius: 10px;
+        }
+        
+        #resultado {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        footer {
+            text-align: center;
+            position: absolute;
+            width: 97%;
+            bottom: 0;
+            background-color: rgb(100, 150, 160);
+            padding: 10px;
+            font-family: 'Arizonia';
+            font-size: 25px;
+        }
+    </style>
+
+    <body>
+        <main>
+            <header>
+                <h1 id="title">Calculadora de materiais de Construção</h1>
+                <h2 id="subtitle">Reboco</h2>
+            </header>
+
+            <div class="container">
+                <form id="blocos">
+                    <select id="lista">
+                <option id="14x19x29" value="1">14x19x29</option>
+                <option id="19x19x29" value="2">19x19x29</option>
+                <option id="19x19x39" value="3">19x19x39</option>
+                <option id="" value="4">FCK 30MPa</option>
+                <option id="35MPa" value="5">FCK 35MPa</option>
+                <option id="40MPa" value="6">FCK 40MPa</option>
+            </select>
+                </form>
+
+                <div>
+                    <input type="number" name="perimetro" id="perimetro" placeholder="perímetro">
+                    <input type="number" name="altura" id="altura" placeholder="altura">
+                    <button onclick="calcular()">Calcular</button>
+                </div>
+
+                <div id="resultado">
+
+                </div>
+            </div>
+
+
+
+            <footer>
+                <div id="voltar">
+                    <a href="index.html">Voltar para a Pagina principal</a>
+                </div>
+            </footer>
+</head>
+
+</body>
+
+</html>
