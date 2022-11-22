@@ -10,18 +10,18 @@
         body {
             background-color: rgb(231, 226, 226);
         }
-
+        
         h1 {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16pt;
             font-weight: bolder;
             padding-left: 150px;
         }
-
+        
         .login_senha {
             display: flex;
         }
-
+        
         .login {
             flex-basis: 50%;
             display: inline-block;
@@ -29,19 +29,19 @@
             font-family: 'Times New Roman', Times, serif;
             font-size: 12pt;
         }
-
+        
         .login label {
             display: inline-block;
             width: 150px;
             text-align: right;
         }
-
+        
         .login input {
             display: inline-block;
             width: 200px;
             height: 15px;
         }
-
+        
         .senha {
             flex-basis: 50%;
             display: inline-block;
@@ -49,23 +49,23 @@
             font-family: 'Times New Roman', Times, serif;
             font-size: 12pt;
         }
-
+        
         .senha label {
             display: inline-block;
             width: 150px;
             text-align: right;
         }
-
+        
         .senha input {
             display: inline-block;
             width: 200px;
             height: 15px;
         }
-
+        
         .meio {
             display: flex;
         }
-
+        
         .dados_cadastrais {
             flex-basis: 50%;
             display: inline-block;
@@ -73,23 +73,23 @@
             font-family: 'Times New Roman', Times, serif;
             font-size: 12pt;
         }
-
+        
         .dados_cadastrais label {
             display: inline-block;
             width: 150px;
             text-align: right;
         }
-
+        
         .dados_cadastrais input {
             display: inline-block;
             width: 200px;
             height: 15px;
         }
-
+        
         #lblReceberInfo {
             width: fit-content;
         }
-
+        
         .endereco_entrega {
             flex-basis: 50%;
             display: inline-block;
@@ -97,30 +97,28 @@
             font-family: 'Times New Roman', Times, serif;
             font-size: 12;
         }
-
+        
         .endereco_entrega label {
             display: inline-block;
             width: 150px;
             text-align: right;
         }
-
+        
         .endereco_entrega input {
             display: inline-block;
             width: 200px;
             height: 15px;
         }
-
-        #lblSemNumero{
+        
+        #lblSemNumero {
             width: fit-content;
         }
-
-        input[type="checkbox"]{
+        
+        input[type="checkbox"] {
             display: inline-block;
             width: fit-content;
             margin-left: 135px;
-
         }
-        
     </style>
 </head>
 
@@ -164,8 +162,7 @@
             </select>
             <br>
             <label for="txtCPF">* CPF: </label>
-            <input type="text" inputmode="numeric" id="txtCPF" title="Digite um CPF (somente números)"
-            maxlength="11" class="obrigatorio">
+            <input type="text" inputmode="numeric" id="txtCPF" title="Digite um CPF (somente números)" maxlength="11" class="obrigatorio">
             <br>
             <label for="txtTelefone">Telefone: </label>
             <input type="tel" id="txtTelefone" title="Digite um número de telefone (somente números)" class="naoObrigatorio">
@@ -182,12 +179,12 @@
         <div class="endereco_entrega">
             <h1>Endereço de entrega</h1><br>
             <label for="txtCEP">* CEP: </label>
-            <input type="text" inputmode="numeric" id="txtCEP" maxlength="8" title="Digite um CEP (somente números)"class="obrigatorio">
+            <input type="text" inputmode="numeric" id="txtCEP" maxlength="8" title="Digite um CEP (somente números)" class="obrigatorio">
             <br>
             <label for="txtLogradouro">* Logradouro: </label>
             <input type="text" id="txtLogradouro" class="obrigatorio">
             <br>
-            <label for="txtNumero" >* Número: </label>
+            <label for="txtNumero">* Número: </label>
             <input type="text" inputmode="numeric" id="txtNumero" class="obrigatorio">
             <br>
             <input type="checkbox" id="semNumero">
@@ -250,13 +247,13 @@
         function cadastrar() {
             conferirEmail();
             conferirSenha();
-            camposObrigatorios();
-            if (conferirEmail() === true && conferirSenha() === true && camposObrigatorios() === true) {
+            camposObrigatorios2();
+            if (conferirEmail() === true && conferirSenha() === true && camposObrigatorios2() === true) {
                 imprimir();
-            } 
-          
+            }
+
         }
-        
+
 
         function conferirEmail() {
             const email = document.getElementById("txtEmail").value;
@@ -280,35 +277,18 @@
             }
         }
 
-        
-        
-
-        function camposObrigatorios() {
-            const nome = document.getElementById("txtNome").value;
-            const sobrenome = document.getElementById("txtSobrenome").value;
-            const sexo = document.getElementById("comboSexo").value;
-            const cpf = document.getElementById("txtCPF").value;
-            const celular = document.getElementById("txtCelular").value;
-            const nascimento = document.getElementById("txtDataNascimento").value;
-            const  cep = document.getElementById("txtCEP").value;
-            const logradouro = document.getElementById("txtLogradouro").value;
+        function camposObrigatorios2() {
+            let temObrigatoriosNaopreenchidos = false;
             const numero = document.getElementById("txtNumero").value;
-            const bairro = document.getElementById("txtBairro").value;
-            const cidade = document.getElementById("txtCidade").value;
-            const estado = document.getElementById("comboEstado").value;
-            const email = document.getElementById("txtEmail").value;
-            const confirmarEmail = document.getElementById("txtConfirmarEmail").value;
-            const senha = document.getElementById("txtSenha").value;
-            const confirmarSenha = document.getElementById("txtConfirmarSenha").value;
             const semNumero = document.getElementById("semNumero");
-
-            // (semNumero.checked == false && numero == '') 
-
-            if (nome == '' || sobrenome == '' || sexo == '' || cpf == '' || celular == '' || nascimento == '' || cep == '' || logradouro == ''
-            || bairro == '' || cidade == '' || estado == '' || email == '' || confirmarEmail == '' || senha == '' || confirmarSenha == '' 
-            ) 
-            {
-                destacarCampo();
+            let camposObrigatorios = document.querySelectorAll("input.obrigatorio");
+            for (let i = 0; i < camposObrigatorios.length; i++) {
+                if (camposObrigatorios[i].value == '') {
+                    temObrigatoriosNaopreenchidos = true;
+                    destacarCampo2(camposObrigatorios[i]);
+                }
+            }
+            if (temObrigatoriosNaopreenchidos == true) {
                 alert("Existem campos obrigatórios que não foram preenchidos");
                 return false;
             } else if (semNumero.checked == false && numero == '') {
@@ -319,71 +299,19 @@
             }
         }
 
-        function destacarCampo() {
-            const nome = document.getElementById("txtNome").value;
-            const sobrenome = document.getElementById("txtSobrenome").value;
-            const sexo = document.getElementById("comboSexo").value;
-            const cpf = document.getElementById("txtCPF").value;
-            const celular = document.getElementById("txtCelular").value;
-            const nascimento = document.getElementById("txtDataNascimento").value;
-            const  cep = document.getElementById("txtCEP").value;
-            const logradouro = document.getElementById("txtLogradouro").value;
-            const numero = document.getElementById("txtNumero").value;
-            const bairro = document.getElementById("txtBairro").value;
-            const cidade = document.getElementById("txtCidade").value;
-            const estado = document.getElementById("comboEstado").value;
-            const email = document.getElementById("txtEmail").value;
-            const confirmarEmail = document.getElementById("txtConfirmarEmail").value;
-            const senha = document.getElementById("txtSenha").value;
-            const confirmarSenha = document.getElementById("txtConfirmarSenha").value;
+        function destacarCampo2(element) {
+            element.style.backgroundColor = "cyan";
+        }
 
-            if (nome == '') {
-                document.getElementById("txtNome").style.backgroundColor = "cyan";
-            }
-            if (sobrenome == '') {
-                document.getElementById("txtSobrenome").style.backgroundColor = "cyan";
-            }
-            if (sexo == '') {
-                document.getElementById("comboSexo").style.backgroundColor = "cyan";
-            }
-            if (cpf == '') {
-                document.getElementById("txtCPF").style.backgroundColor = "cyan";
-            }
-            if (celular == '') {
-                document.getElementById("txtCelular").style.backgroundColor = "cyan";
-            }
-            if (nascimento == '') {
-                document.getElementById("txtDataNascimento").style.backgroundColor = "cyan";
-            }
-            if (cep == '') {
-                document.getElementById("txtCEP").style.backgroundColor = "cyan";
-            }
-            if (logradouro == '') {
-                document.getElementById("txtLogradouro").style.backgroundColor = "cyan";
-            }
-            if (bairro == '') {
-                document.getElementById("txtBairro").style.backgroundColor = "cyan";
-            }
-            if (cidade === '') {
-                document.getElementById("txtCidade").style.backgroundColor = "cyan";
-            }
-            if (estado == '') {
-                document.getElementById("comboEstado").style.backgroundColor = "cyan";
-            }
-            if (email == '') {
-                document.getElementById("txtEmail").style.backgroundColor = "cyan";
-            }
-            if (confirmarEmail == '') {
-                document.getElementById("txtConfirmarEmail").style.backgroundColor = "cyan";
-            }
-            if (senha == '') {
-                document.getElementById("txtSenha").style.backgroundColor = "cyan";
-            }
-            if (confirmarSenha == '') {
-                document.getElementById("txtConfirmarSenha").style.backgroundColor = "cyan";
+        function imprimir2() {
+            const campos = document.querySelectorAll("input");
+            const labels = document.querySelectorAll("label");
+            for (let i = 0; campos.length; i++) {
+                let dados = document.getElementById("confirmarDadosUsuario");
+                dados.innerHTML += `<p>${labels[i].innerText}: ${campos[i].value} </p>`
             }
         }
-        
+
         function imprimir() {
             const nome = document.getElementById("txtNome").value;
             const sobrenome = document.getElementById("txtSobrenome").value;
@@ -392,7 +320,7 @@
             const telefone = document.getElementById("txtTelefone").value;
             const celular = document.getElementById("txtCelular").value;
             const nascimento = document.getElementById("txtDataNascimento").value;
-            const  cep = document.getElementById("txtCEP").value;
+            const cep = document.getElementById("txtCEP").value;
             const logradouro = document.getElementById("txtLogradouro").value;
             const numero = document.getElementById("txtNumero").value;
             const complemento = document.getElementById("txtComplemento").value;
@@ -417,17 +345,12 @@
                                <p>Cidade: ${cidade} </p>
                                <p>Estado: ${estado} </p>
                                <button id="confirmarCadastro" onclick="confirmarCadastro()">Confirmar Cadastro</button>
-            `  
-        } 
+            `
+        }
 
         function confirmarCadastro() {
             alert("Cadastro efetuado com sucesso");
         }
-
-
-
-
-        
     </script>
 </body>
 
